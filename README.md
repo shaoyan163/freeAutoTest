@@ -11,15 +11,24 @@ autoTestGo简介
 4、BeautifulReport
 
 注意事项
-需要把BeautifulReport文件夹放到python的lib文件site-packages下面  
+
+需要把BeautifulReport文件夹放到python的lib文件site-packages下面
+
 ![Alt text](https://github.com/shaoyan163/autoTestGo/blob/master/screenshot/lib.png)
 
+
 实现的功能
+
 1、数据驱动  
-2、接口依赖  
-3、连接数据库查询  
-4、自动生成测试报告  
+
+2、接口依赖
+
+3、连接数据库查询 
+
+4、自动生成测试报告 
+
 5、自动发送测试邮件
+
 
 模块介绍
 
