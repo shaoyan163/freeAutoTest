@@ -1,0 +1,45 @@
+正常登录资产端:
+  email : hzsyy@tairanchina.com
+  password : ats123456
+  token: assertToken
+  assert: hzsyy@tairanchina.com
+
+正常登录资产中心:
+  email: hzjxin@tairanchina.com
+  password: ats123456
+  token: centerToken
+  assert: hzjxin@tairanchina.com
+
+正常登录资金端:
+  email: 18042477732@163.com
+  password: ats123456
+  token: fundToken
+  assert: 18042477732@163.com
+
+输入错误的邮箱登录:
+  email: 18042477732q@163.com
+  password: ats123456
+  assert: 邮箱[18042477732q@163.com]不存在
+
+不输入email登录:
+  email:
+  password: ats123456
+  assert: 邮箱账号不能为空
+
+不输入密码登录:
+  email: 18042477732@163.com
+  password:
+  assert: 密码不能为空
+
+输入没有注册的email登录:
+  email: 18458215675@163.com
+  password: ats123456
+  assert: 邮箱[18458215675@163.com]不存在
+
+email和密码都不输入登录:
+  email:
+  password:
+  assert: 邮箱账号不能为空
+
+
+
