@@ -29,6 +29,8 @@
 ###4、testReport放测试报告
 ###5、yaml内放的是每个接口测试用例
 ![Alt text](https://github.com/shaoyan163/autoTestGo/blob/master/screenshot/yaml.jpg)
+###6、run.py是测试用例运行入口
+![Alt text](https://github.com/shaoyan163/autoTestGo/blob/master/screenshot/run.jpg)
 
 #测试报告
 
