@@ -1,24 +1,24 @@
-#autoTestGo简介
+autoTestGo简介
 
 
-###这是一个接口自动化测试框架，整套框架由requests + unittest + ddt +pymysql + BeautifulReport模块组成， 测试用例在yaml文件#中，支持数据驱动、连数据库查询。 目前框架还不是特别完善，需要在后续的使用中一步步优化，目前尚未使用jenkins做集成，后续结合jenkins做成持续集成
+这是一个接口自动化测试框架，整套框架由requests + unittest + ddt +pymysql + BeautifulReport模块组成， 测试用例在yaml文件#中，支持数据驱动、连数据库查询。 目前框架还不是特别完善，需要在后续的使用中一步步优化，目前尚未使用jenkins做集成，后续结合jenkins做成持续集成
 
-##环境配置
-###1、requests  
-###2、ddt  
-###3、pymysql  
-###4、BeautifulReport
+环境配置
+1、requests  
+2、ddt  
+3、pymysql  
+4、BeautifulReport
 
-##注意事项
-###需要把BeautifulReport文件夹放到python的lib文件site-packages下面  
+注意事项
+需要把BeautifulReport文件夹放到python的lib文件site-packages下面  
 ![Alt text](https://github.com/shaoyan163/autoTestGo/blob/master/screenshot/lib.png)
 
-##实现的功能
-###1、数据驱动  
-###2、接口依赖  
-###3、连接数据库查询  
-###4、自动生成测试报告  
-###5、自动发送测试邮件
+实现的功能
+1、数据驱动  
+2、接口依赖  
+3、连接数据库查询  
+4、自动生成测试报告  
+5、自动发送测试邮件
 
 #模块介绍
 ![Alt text](https://github.com/shaoyan163/autoTestGo/blob/master/screenshot/module.jpg)  
