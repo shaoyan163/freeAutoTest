@@ -1,4 +1,4 @@
-autoTestGo简介
+freeAutoTest简介
 
 
 这是一个接口自动化测试框架，整套框架由requests + unittest + ddt +pymysql + BeautifulReport模块组成， 测试用例在yaml文件中，支持数据驱动、连数据库查询。 目前框架还不是特别完善，需要在后续的使用中一步步优化，目前尚未使用jenkins做集成，后续结合jenkins做成持续集成
