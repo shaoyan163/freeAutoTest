@@ -55,6 +55,8 @@ freeAutoTest简介
 7、logs用于存放每次运行接口信息日志
 
 
+
+
 测试报告
 
 ![Alt text](https://github.com/shaoyan163/autoTestGo/blob/master/screenshot/report.jpg)
