@@ -11,6 +11,8 @@ import json
 import requests
 from common import readConfig
 from common.oper_token import write_file
+from common.logger import Log
+
 
 
 @ddt.ddt
@@ -25,6 +27,8 @@ class test_登录(unittest.TestCase):
     @ddt.file_data("../yaml/登录.yaml")
     def test_续借(self, **value):
         loginData = {"email": value["email"], "password": value["password"], "appId": readConfig.appId}
+		self.log.info("开始测试" + "#"*200)
+		self.log.info("请求参数:{}".format(loginData))
 
         # 发送请求
         response = requests.post(self.url, headers=self.headers, data=json.dumps(loginData))
@@ -40,6 +44,11 @@ class test_登录(unittest.TestCase):
         print("+"*200)
         print("期望结果：{}, 实际结果：{}".format(value["assert"], text))
         print("#" * 200)
+		
+		self.log.info("期望结果：{}".format(value["assert"]))
+        self.log.info("实际结果：{}".format(text))
+        self.log.info("测试结束" + "#"*200)
+        print()
 
         # 断言
         self.assertIn(value["assert"], text)
