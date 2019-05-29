@@ -11,24 +11,36 @@ import json
 import requests
 from common import readConfig
 from common.dataBase import dataBase
-from common.oper_token import read_token
+from common.operToken import read_token
+from common.readYaml import operYaml
+from getRootPath import root_dir
+
+reason = readConfig.skip_reason
 
 
 @ddt.ddt
 class test_审核项目配置(unittest.TestCase):
+    yaml_path = root_dir + "\\yaml\\审核项目配置.yaml"
+    oper_yaml = operYaml(yaml_path)
+    case_list = oper_yaml.caseList()
 
-    def setUp(self):
-
+    @classmethod
+    def setUpClass(cls):
         projectName = readConfig.projectName  # 获取创建项目名字
-        print(projectName)
         db = dataBase()
-        self.config_number = db.configId("id", "loan_project_config", "project_name", projectName)
-        self.url = readConfig.hostName + "/api/center/v2/project-config/_audit-success"
-        self.headers = {"Content-Type": "application/json;charset=UTF-8", "Authorization": read_token()["centerToken"]}
+        cls.config_number = db.configId("id", "loan_project_config", "project_name", projectName)
+        cls.url = readConfig.hostName + "/api/center/v2/project-config/_audit-success"
+        cls.headers = {"Content-Type": "application/json;charset=UTF-8", "Authorization": read_token()["centerToken"]}
 
-    # 把yaml文件参数传进去做数据驱动
-    @ddt.file_data("../yaml/审核项目配置.yaml")
-    def test_审核项目配置(self, **value):
+    # case_list传进去做数据驱动
+    @ddt.data(*case_list)
+    def test_审核项目配置(self, cases):
+        self.__dict__['_testMethodDoc'] = ([caseName for caseName in cases.keys()][0])
+
+        for caseName, caseInfo in cases.items():
+            caseName = caseName
+            caseData = caseInfo["data"]
+            check = caseInfo["assert"]
 
         ids = {"id": self.config_number,
                "riskStrategy": readConfig.riskStrategy,
@@ -37,7 +49,7 @@ class test_审核项目配置(unittest.TestCase):
                "riskStrategyVersionName": readConfig.riskStrategyVersionName
                }
 
-        data = value["data"]
+        data = caseData
         for key in data.keys():
             if data[key] in list(ids.keys()):
                 data[key] = ids[data[key]]
@@ -47,15 +59,17 @@ class test_审核项目配置(unittest.TestCase):
         text = response.text  # 接口返回信息
 
         print("#"*200)
+        print("用例名字：{}".format(caseName))
         print("请求参数：", data)
         print("+"*200)
-        print("期望结果：{}, 实际结果：{}".format(value["assert"], text))
+        print("期望结果：{}, 实际结果：{}".format(check, text))
         print("#" * 200)
 
         # 断言
-        self.assertIn(value["assert"], text)
+        self.assertIn(check, text)
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(cls):
         pass
 
 
