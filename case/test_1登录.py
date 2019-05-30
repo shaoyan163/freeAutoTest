@@ -5,7 +5,7 @@
 @FileName: test_登录.py
 @IDE     : PyCharm
 """
-from ddt import ddt,data,unpack
+from ddt import ddt, data
 import unittest
 import json
 import requests
@@ -13,7 +13,8 @@ from common import readConfig
 from common.operToken import write_file
 from common.readYaml import operYaml
 from getRootPath import root_dir
-reason = readConfig.skip_reason
+from common.logger import Log
+
 
 @ddt
 class test_登录(unittest.TestCase):
@@ -21,8 +22,15 @@ class test_登录(unittest.TestCase):
     oper_yaml = operYaml(yaml_path)
     case_list = oper_yaml.caseList()
 
+    # 跳过说明
+    reason = readConfig.skip_reason
+
     @classmethod
     def setUpClass(cls):
+
+        # log实例化
+        cls.log = Log()
+
         # 声明dict变量存储token
         cls.token_dict = {}
 
@@ -35,13 +43,13 @@ class test_登录(unittest.TestCase):
     # case_list传进去做数据驱动
     @data(*case_list)
     def test_登录(self, cases):
-        
+
         for caseName, caseInfo in cases.items():
             caseName = caseName
             email = caseInfo["email"]
             passwd = caseInfo["password"]
             check = caseInfo["assert"]
-	    self.__dict__['_testMethodDoc'] = caseName
+            self.__dict__['_testMethodDoc'] = caseName
             if "token" in caseInfo.keys():
                 token = caseInfo["token"]
 
@@ -61,19 +69,19 @@ class test_登录(unittest.TestCase):
         if text_dict["code"] == str(200):
             self.token_dict[token] = text_dict["body"]["token"]
 
-        print("#"*200)
-        print("用例名字：{}".format(caseName))
-        print("请求参数：", loginData)
-        print("+"*200)
-        print("期望结果：{}, 实际结果：{}".format(check, text))
-        print("#" * 200)
+        self.log.info("#"*100 + "开始测试" + "#"*100)
+        self.log.info("用例名字：{}".format(caseName))
+        self.log.info("请求参数：{}".format(loginData))
+        self.log.info("-" * 200)
+        self.log.info("期望结果：{}, 实际结果：{}".format(check, text))
+        self.log.info("#"*100 + "测试结束" + "#"*100)
 
         # 断言
         self.assertIn(check, text)
 
     @classmethod
     def tearDownClass(cls):
-	
+
         # 把token写入文件
         write_file(json.dumps(cls.token_dict))
 

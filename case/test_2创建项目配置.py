@@ -13,8 +13,7 @@ from common import readConfig
 from common.operToken import read_token
 from common.readYaml import operYaml
 from getRootPath import root_dir
-
-reason = readConfig.skip_reason
+from common.logger import Log
 
 
 @ddt.ddt
@@ -23,8 +22,15 @@ class test_创建项目配置(unittest.TestCase):
     oper_yaml = operYaml(yaml_path)
     case_list = oper_yaml.caseList()
 
+    # 跳过说明
+    reason = readConfig.skip_reason
+
     @classmethod
     def setUpClass(cls):
+
+        # log 实例化
+        cls.log = Log()
+
         cls.url = readConfig.hostName + "/api/assets/v2/project-config"
         cls.headers = {"Content-Type": "application/json;charset=UTF-8", "Authorization": read_token()["assertToken"]}
 
@@ -48,12 +54,12 @@ class test_创建项目配置(unittest.TestCase):
         response = requests.post(self.url, headers=self.headers, data=json.dumps(data))
         text = response.text  # 接口返回信息
 
-        print("#"*200)
-        print("用例名字：{}".format(caseName))
-        print("请求参数：", data)
-        print("+"*200)
-        print("期望结果：{}, 实际结果：{}".format(check, text))
-        print("#" * 200)
+        self.log.info("#" * 100 + "开始测试" + "#" * 100)
+        self.log.info("用例名字：{}".format(caseName))
+        self.log.info("请求参数：{}".format(data))
+        self.log.info("-" * 200)
+        self.log.info("期望结果：{}, 实际结果：{}".format(check, text))
+        self.log.info("#" * 100 + "测试结束" + "#" * 100)
 
         # 断言
         self.assertIn(check, text)
