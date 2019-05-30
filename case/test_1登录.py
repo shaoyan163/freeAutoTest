@@ -35,13 +35,13 @@ class test_登录(unittest.TestCase):
     # case_list传进去做数据驱动
     @data(*case_list)
     def test_登录(self, cases):
-        self.__dict__['_testMethodDoc'] = ([caseName for caseName in cases.keys()][0])
-
+        
         for caseName, caseInfo in cases.items():
             caseName = caseName
             email = caseInfo["email"]
             passwd = caseInfo["password"]
             check = caseInfo["assert"]
+	    self.__dict__['_testMethodDoc'] = caseName
             if "token" in caseInfo.keys():
                 token = caseInfo["token"]
 
