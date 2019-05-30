@@ -31,12 +31,12 @@ class test_创建项目配置(unittest.TestCase):
     # case_list传进去做数据驱动
     @ddt.data(*case_list)
     def test_创建项目配置(self, cases):
-        self.__dict__['_testMethodDoc'] = ([caseName for caseName in cases.keys()][0])
 
         for caseName, caseInfo in cases.items():
             caseName = caseName
             caseData = caseInfo["data"]
             check = caseInfo["assert"]
+            self.__dict__['_testMethodDoc'] = caseName
 
         config_dict = {"projectName": readConfig.projectName}
         data = caseData
