@@ -4,7 +4,7 @@
   token: assertToken
   assert: hzsyy@tairanchina.com
 
-正常登录资产中心:
+正常登录资产中心 :
   email: hzjxin@tairanchina.com
   password: ats123456
   token: centerToken
@@ -39,7 +39,7 @@
 email和密码都不输入登录:
   email:
   password:
-  assert: 邮箱账号不能为空
+  assert: 不能为空
 
 
 

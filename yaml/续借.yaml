@@ -135,7 +135,6 @@
   assert : "success"
 
 原协议状态为待放款，续借:
-  data : {"oldContract": "1558512840787","contract":contract,"amount":100,"loanTerms":1, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
+  data : {"oldContract": "1556434283864","contract":contract,"amount":100,"loanTerms":1, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
   assert : "当前状态无法进行续贷操作"
-
 

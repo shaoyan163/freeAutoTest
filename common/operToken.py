@@ -6,8 +6,9 @@
 @IDE     : PyCharm
 """
 from getRootPath import root_dir
+import os
 
-token_file = root_dir + r"\conf\tokens"
+token_file = os.path.join(root_dir, "conf", "tokens")
 
 
 def write_file(token):

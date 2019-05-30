@@ -5,10 +5,12 @@
 @FileName: readConfig.py
 @IDE     : PyCharm
 """
+
 import configparser
+import os
 from getRootPath import root_dir
 
-config_path = root_dir + "\conf\config.ini"  # 获取配置文件路径
+config_path = os.path.join(root_dir, "conf", "config.ini")  # 获取配置文件路径
 cf = configparser.ConfigParser()
 
 flag = "Test"  # Test、Dev
@@ -30,6 +32,7 @@ riskStrategyName = cf.get(flag, "riskStrategyName")
 riskStrategyVersion = cf.get(flag, "riskStrategyVersion")
 riskStrategyVersionName = cf.get(flag, "riskStrategyVersionName")
 projectName = cf.get(flag, "projectName")
+skip_reason = cf.get(flag, "skip_reason")
 
 
 if __name__ == "__main__":

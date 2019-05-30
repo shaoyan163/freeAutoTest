@@ -8,12 +8,13 @@
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 
-username = 'xxxxxxxxx'
-password = "xxxxxxxxx"
+username = '757899689@qq.com'
+password = "vfdvrzwicazvbbef"
 sender = username
-receivers = ','.join(['xxxxxxxxxx'])
+receivers = ','.join(['hzsyy@tairanchina.com'])
 
 
 def email(report):
@@ -29,7 +30,7 @@ def email(report):
 
 	#发送邮件
 	client = smtplib.SMTP()
-	client.connect('smtp.163.com')
+	client.connect('smtp.qq.com')
 	client.login(username, password)
 	client.sendmail(sender, receivers, msg.as_string())
 	client.quit()

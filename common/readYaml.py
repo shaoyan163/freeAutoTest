@@ -7,6 +7,7 @@
 """
 
 import yaml
+import os
 from getRootPath import root_dir
 
 
@@ -27,7 +28,7 @@ class operYaml:
 
 
 if __name__ == "__main__":
-	yamlPath = root_dir + "\\yaml\\登录.yaml"
+	yamlPath = os.path.join(root_dir, "yaml", "登录.yaml")
 	oper_yaml = operYaml(yamlPath)
 	case_list = oper_yaml.caseList()
 	for i in case_list:

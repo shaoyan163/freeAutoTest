@@ -14,11 +14,12 @@ from common.operToken import write_file
 from common.readYaml import operYaml
 from getRootPath import root_dir
 from common.logger import Log
+import os
 
 
 @ddt
 class test_登录(unittest.TestCase):
-    yaml_path = root_dir + "\\yaml\\登录.yaml"
+    yaml_path = os.path.join(root_dir, "yaml", "登录.yaml")
     oper_yaml = operYaml(yaml_path)
     case_list = oper_yaml.caseList()
 

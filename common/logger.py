@@ -11,8 +11,7 @@ import time
 import os
 from getRootPath import root_dir
 
-
-log_path = root_dir + "\\logs"
+log_path = os.path.join(root_dir, "logs")
 
 
 class Log:

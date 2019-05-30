@@ -1,26 +1,26 @@
 # coding=utf-8 
 """
-@Time    : 2019/05/25  上午 12:50
+@Time    : 2019/05/25  上午 10:15 
 @Author  : hzsyy
-@FileName: test_创建项目配置.py
+@FileName: test_对外续借接口.py
 @IDE     : PyCharm
 """
 import os
-
+import random
+import string
+import time
 import ddt
 import unittest
-import json
-import requests
 from common import readConfig
-from common.operToken import read_token
+from common.reNew import renewLoan
 from common.readYaml import operYaml
 from getRootPath import root_dir
 from common.logger import Log
 
 
 @ddt.ddt
-class test_创建项目配置(unittest.TestCase):
-    yaml_path = os.path.join(root_dir, "yaml", "创建项目配置.yaml")
+class test_续借(unittest.TestCase):
+    yaml_path = os.path.join(root_dir, "yaml", "续借.yaml")
     oper_yaml = operYaml(yaml_path)
     case_list = oper_yaml.caseList()
 
@@ -33,12 +33,9 @@ class test_创建项目配置(unittest.TestCase):
         # log 实例化
         cls.log = Log()
 
-        cls.url = readConfig.hostName + "/api/assets/v2/project-config"
-        cls.headers = {"Content-Type": "application/json;charset=UTF-8", "Authorization": read_token()["assertToken"]}
-
     # case_list传进去做数据驱动
     @ddt.data(*case_list)
-    def test_创建项目配置(self, cases):
+    def test_续借(self, cases):
 
         for caseName, caseInfo in cases.items():
             caseName = caseName
@@ -46,15 +43,25 @@ class test_创建项目配置(unittest.TestCase):
             check = caseInfo["assert"]
             self.__dict__['_testMethodDoc'] = caseName
 
-        config_dict = {"projectName": readConfig.projectName}
+        time.sleep(1)
+        contract_dict = {"personContract": "1558514809015",
+                         "successContract": "LX201904030003",
+                         "directWithCollect": "LX2019005150011",
+                         "enterPriseContract": "T1555989468",
+                         "contract": "R" + str(time.time()).split(".")[1] + "".join(random.sample(string.digits, 3)),
+                         "collectAccount": "6217002280007862436",
+                         "orderId": str(time.time()).replace(".", "1") + "".join(random.sample(string.digits, 3)),
+                         }
         data = caseData
         for key in data.keys():
-            if data[key] in list(config_dict.keys()):
-                data[key] = config_dict[data[key]]
+            if data[key] in list(contract_dict.keys()):
+                data[key] = contract_dict[data[key]]
 
         # 发送请求
-        response = requests.post(self.url, headers=self.headers, data=json.dumps(data))
-        text = response.text  # 接口返回信息
+        text = eval(renewLoan(data))
+
+        # 获取接口返回msg信息
+        self.text = text["msg"]
 
         self.log.info("#" * 100 + "开始测试" + "#" * 100)
         self.log.info("用例名字：{}".format(caseName))
@@ -64,7 +71,7 @@ class test_创建项目配置(unittest.TestCase):
         self.log.info("#" * 100 + "测试结束" + "#" * 100)
 
         # 断言
-        self.assertIn(check, text)
+        self.assertIn(check, self.text)
 
     @classmethod
     def tearDownClass(cls):
@@ -73,5 +80,3 @@ class test_创建项目配置(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
