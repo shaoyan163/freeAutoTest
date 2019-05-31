@@ -11,7 +11,7 @@ import ddt
 import unittest
 import json
 import requests
-from common import readConfig
+from common.readConfig import confParam
 from common.dataBase import dataBase
 from common.operToken import read_token
 from common.readYaml import operYaml
@@ -26,7 +26,7 @@ class test_审核项目配置(unittest.TestCase):
     case_list = oper_yaml.caseList()
 
     # 跳过说明
-    reason = readConfig.skip_reason
+    reason = confParam("skip_reason")
 
     @classmethod
     def setUpClass(cls):
@@ -34,10 +34,14 @@ class test_审核项目配置(unittest.TestCase):
         # log 实例化
         cls.log = Log()
 
-        projectName = readConfig.projectName  # 获取创建项目名字
+        # 获取创建项目名字
+        projectName = confParam("projectName")
+
+        # 数据库实例化
         db = dataBase()
+
         cls.config_number = db.configId("id", "loan_project_config", "project_name", projectName)
-        cls.url = readConfig.hostName + "/api/center/v2/project-config/_audit-success"
+        cls.url = confParam("hostName") + "/api/center/v2/project-config/_audit-success"
         cls.headers = {"Content-Type": "application/json;charset=UTF-8", "Authorization": read_token()["centerToken"]}
 
     # case_list传进去做数据驱动
@@ -51,20 +55,24 @@ class test_审核项目配置(unittest.TestCase):
             self.__dict__['_testMethodDoc'] = caseName
 
         ids = {"id": self.config_number,
-               "riskStrategy": readConfig.riskStrategy,
-               "riskStrategyName": readConfig.riskStrategyName,
-               "riskStrategyVersion": readConfig.riskStrategyVersion,
-               "riskStrategyVersionName": readConfig.riskStrategyVersionName
+               "riskStrategy": confParam("riskStrategy"),
+               "riskStrategyName": confParam("riskStrategyName"),
+               "riskStrategyVersion": confParam("riskStrategyVersion"),
+               "riskStrategyVersionName": confParam("riskStrategyVersionName")
                }
 
         data = caseData
+
+        # 用例中值替换为变量
         for key in data.keys():
             if data[key] in list(ids.keys()):
                 data[key] = ids[data[key]]
 
         # 发送请求
         response = requests.post(self.url, headers=self.headers, data=json.dumps(data))
-        text = response.text  # 接口返回信息
+
+        # 接口返回信息
+        text = response.text
 
         self.log.info("#" * 100 + "开始测试" + "#" * 100)
         self.log.info("用例名字：{}".format(caseName))

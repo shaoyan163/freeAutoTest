@@ -11,7 +11,7 @@ import ddt
 import unittest
 import json
 import requests
-from common import readConfig
+from common.readConfig import confParam
 from common.operToken import read_token
 from common.readYaml import operYaml
 from getRootPath import root_dir
@@ -25,7 +25,7 @@ class test_创建项目配置(unittest.TestCase):
     case_list = oper_yaml.caseList()
 
     # 跳过说明
-    reason = readConfig.skip_reason
+    reason = confParam("skip_reason")
 
     @classmethod
     def setUpClass(cls):
@@ -33,7 +33,7 @@ class test_创建项目配置(unittest.TestCase):
         # log 实例化
         cls.log = Log()
 
-        cls.url = readConfig.hostName + "/api/assets/v2/project-config"
+        cls.url = confParam("hostName") + "/api/assets/v2/project-config"
         cls.headers = {"Content-Type": "application/json;charset=UTF-8", "Authorization": read_token()["assertToken"]}
 
     # case_list传进去做数据驱动
@@ -46,8 +46,10 @@ class test_创建项目配置(unittest.TestCase):
             check = caseInfo["assert"]
             self.__dict__['_testMethodDoc'] = caseName
 
-        config_dict = {"projectName": readConfig.projectName}
+        config_dict = {"projectName": confParam("projectName")}
         data = caseData
+
+        # 用例中值替换为变量
         for key in data.keys():
             if data[key] in list(config_dict.keys()):
                 data[key] = config_dict[data[key]]

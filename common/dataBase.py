@@ -6,15 +6,15 @@
 @IDE     : PyCharm
 """
 import pymysql
-from common import readConfig
+from common.readConfig import confParam
 
 
 class dataBase:
 	def __init__(self):
-		self.host = readConfig.host
-		self.user = readConfig.user
-		self.password = readConfig.password
-		self.db = readConfig.db
+		self.host = confParam("host")
+		self.user = confParam("user")
+		self.password = confParam("password")
+		self.db = confParam("db")
 		self.con = pymysql.connect(host=self.host, user=self.user, password=self.password,
 		                           db=self.db, port=3306, charset="utf8")
 		self.cur = self.con.cursor()

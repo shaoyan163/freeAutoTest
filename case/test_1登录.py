@@ -9,7 +9,7 @@ from ddt import ddt, data
 import unittest
 import json
 import requests
-from common import readConfig
+from common.readConfig import confParam
 from common.operToken import write_file
 from common.readYaml import operYaml
 from getRootPath import root_dir
@@ -24,7 +24,7 @@ class test_登录(unittest.TestCase):
     case_list = oper_yaml.caseList()
 
     # 跳过说明
-    reason = readConfig.skip_reason
+    reason = confParam("skip_reason")
 
     @classmethod
     def setUpClass(cls):
@@ -36,7 +36,7 @@ class test_登录(unittest.TestCase):
         cls.token_dict = {}
 
         # 拼接接口地址
-        cls.url = readConfig.loginUrl + "/gateway/foundation-user/login/email"
+        cls.url = confParam("loginUrl") + "/gateway/foundation-user/login/email"
 
         # 请求信息头
         cls.headers = {"Content-Type": "application/json;charset=UTF-8"}
@@ -55,7 +55,7 @@ class test_登录(unittest.TestCase):
                 token = caseInfo["token"]
 
         # 拼装请求参数
-        loginData = {"email": email, "password": passwd, "appId": readConfig.appId}
+        loginData = {"email": email, "password": passwd, "appId": confParam("appId")}
 
         # 发送请求
         response = requests.post(self.url, headers=self.headers, data=json.dumps(loginData))
