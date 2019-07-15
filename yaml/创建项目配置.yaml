@@ -15,10 +15,10 @@
   assert: assetKind=资产类型不能为空, projectType=业务类型不能为空, projectName=项目名称不能为空
 
 正常创建项目配置:
-  data: {"assetKind": "CREDIT", "projectName": projectName, "projectType": "PRO_CONSUMPTION"}
+  data: {"assetKind": "CREDIT", "projectName": "${projectName}", "projectType": "PRO_CONSUMPTION"}
   assert: Success
 
 创建已经存在的项目配置:
-  data: {"assetKind": "CREDIT", "projectName": projectName, "projectType": "PRO_CONSUMPTION"}
+  data: {"assetKind": "CREDIT", "projectName": "${projectName}", "projectType": "PRO_CONSUMPTION"}
   assert: 相同项目名称，业务类型，资产类型的的记录已存在，请修正已经存在
 

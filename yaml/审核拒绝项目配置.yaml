@@ -1,0 +1,18 @@
+不输入项目id审核拒绝:
+  data: {"id":""}
+  assert: 项目编号不能为空
+
+输入不存在项目id审核拒绝:
+  data: {"id":"qwert1234567890"}
+  assert: 项目配置记录不存在
+
+项目审核拒绝:
+  data: {"id":"${id}"}
+  assert: Success
+
+项目审核拒绝后再次审核拒绝:
+  data: {"id":"${id}"}
+  assert: 该记录已处理，请勿重复操作
+
+
+

@@ -1,0 +1,42 @@
+资产端》》》》》统计所有条件下借款总金额、第一页金额之和:
+  current_page: select sum(b.loan_amount) as '当前页总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03' and `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc LIMIT 0,20) b;
+  total_amount: select sum(b.loan_amount) as '当前条件总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 and `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc ) b;
+
+资产端》》》》》统计所有条件下借款总金额、第二页金额之和:
+  current_page: select sum(b.loan_amount) as '当前页总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03' and `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc LIMIT 20,20) b;
+  total_amount: select sum(b.loan_amount) as '当前条件总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 and `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc ) b;
+
+资产端》》》》》统计所有条件下借款总金额、第三页金额之和:
+  current_page: select sum(b.loan_amount) as '当前页总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03'
+    AND `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc LIMIT 40,20) b;
+  total_amount: select sum(b.loan_amount) as '当前条件总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03'
+    AND `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc ) b;
+
+资产端》》》》》统计资产类型为信用类借款总金额、第一页金额之和:
+  current_page: select sum(b.loan_amount) as '当前页总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03'
+    AND  asset_kind='CREDIT' and `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc LIMIT 0,20) b;
+  total_amount: select sum(b.loan_amount) as '当前条件总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03'
+    AND  asset_kind='CREDIT' and   `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc ) b;
+
+资产端》》》》》统计业务类型为虚拟网店借款总金额、第一页金额之和:
+  current_page: select sum(b.loan_amount) as '当前页总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03'
+    AND  project_type='PRO_VIRTUAL_SHOP' and `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc LIMIT 0,20) b;
+  total_amount: select sum(b.loan_amount) as '当前条件总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03'
+    AND  project_type='PRO_VIRTUAL_SHOP' and   `status` NOT IN ("LOANED","CLEARED","APPLY_ADVANCE") ORDER BY created_time desc ) b;
+
+资产端》》》》》统计业务类型为虚拟网店、状态为审核中的借款总金额、第一页金额之和:
+  current_page: select sum(b.loan_amount) as '当前页总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03'
+    AND  project_type='PRO_VIRTUAL_SHOP' and `status` = 'AUDITING' ORDER BY created_time desc LIMIT 0,20) b;
+  total_amount: select sum(b.loan_amount) as '当前条件总额' from (SELECT loan_amount FROM loan_application WHERE asset_org='228028691125315586' and del_flag=0 AND applied_time >= '2019-03-05'
+    AND applied_time <= ' 2019-06-03'
+    AND  project_type='PRO_VIRTUAL_SHOP' and   `status` = 'AUDITING' ORDER BY created_time desc ) b;
+

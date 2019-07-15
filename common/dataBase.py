@@ -16,15 +16,21 @@ class dataBase:
 		self.password = confParam("password")
 		self.db = confParam("db")
 		self.con = pymysql.connect(host=self.host, user=self.user, password=self.password,
-		                           db=self.db, port=3306, charset="utf8")
+                                  db=self.db, port=3306, charset="utf8")
 		self.cur = self.con.cursor()
 
 	def configId(self, col_name, table_name, project_name, key):
 		sql = "Select {} from {} where {} ='{}'".format(col_name, table_name,project_name, key)
 		self.cur.execute(sql)
+		return self.cur.fetchall()[0][0]
+
+	def getSumAmount(self, sql):
+		self.cur.execute(sql)
+		return self.cur.fetchall()[0][0]
+
+	def closeDb(self):
 		self.cur.close()
 		self.con.close()
-		return self.cur.fetchall()[0][0]
 
 
 if __name__ == "__main__":

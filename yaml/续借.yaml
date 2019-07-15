@@ -8,23 +8,23 @@
 
 续借输入协议编号为空:
   data : {"oldContract": personContract,"contract":"","amount":100,"loanTerms":1, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "续贷合同号不能为空"
+  assert : "续借合同号不能为空"
 
 续借输入续借金额为0:
   data : {"oldContract": personContract,"contract":contract,"amount":0,"loanTerms":1, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "续贷金额必须>=1"
+  assert : "续借金额必须>=1"
 
 续借输入续借金额为空:
   data : {"oldContract": personContract,"contract":contract,"amount":"","loanTerms":1, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "续贷金额不能为空"
+  assert : "续借金额不能为空"
 
 续借输入期数为空:
   data : {"oldContract": personContract,"contract":contract,"amount":100,"loanTerms":"", "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "续贷期数不能为空"
+  assert : "续借期数不能为空"
 
 续借输入期数为100:
   data : {"oldContract": personContract,"contract":contract,"amount":100,"loanTerms":100, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "续贷期数不能>72"
+  assert : "续借期数不能>72"
 
 续借输入期数为字母:
   data : {"oldContract": personContract,"contract":contract,"amount":100,"loanTerms":"wert", "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
@@ -32,11 +32,11 @@
 
 续借输入期数为0:
   data : {"oldContract": personContract,"contract":contract,"amount":100,"loanTerms":0,"repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "续贷期数不能<1"
+  assert : "续借期数不能<1"
 
 续借输入期数为-5:
   data : {"oldContract": personContract,"contract":contract,"amount":100,"loanTerms":-5, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "续贷期数不能<1"
+  assert : "续借期数不能<1"
 
 续借输入渠道利率为空:
   data : {"oldContract": personContract,"contract":contract,"amount":100,"loanTerms":1, "repayRate":"","repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
@@ -92,7 +92,7 @@
 
 续借2次后再次续借:
   data : {"oldContract": personContract,"contract":contract,"amount":100,"loanTerms":1, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "最多进行2次续贷"
+  assert : "超出续借次数"
 
 续借输入放款模式为代收、不输入代收银行卡参数:
   data : {"oldContract": personContract,"contract":contract,"amount":100,"loanTerms":1, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"COLLECTION","collectionAmount":"100","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
@@ -136,5 +136,5 @@
 
 原协议状态为待放款，续借:
   data : {"oldContract": "1556434283864","contract":contract,"amount":100,"loanTerms":1, "repayRate":0.01,"repayRateType":"YEAR_RATES","loanModel":"DIRECT_INVESTMENT","orderId": orderId,  "attachments":[  { "name":"12.jpg","fileType":"jpg", "fileUrl":"FnxsCx-L0vTFKblRRh086K1ITn1R"}] }
-  assert : "当前状态无法进行续贷操作"
+  assert : "当前状态无法进行续借操作"
 
