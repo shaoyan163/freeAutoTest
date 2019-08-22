@@ -16,6 +16,8 @@ freeAutoTest简介
 
 ![Alt text](https://github.com/shaoyan163/autoTestGo/blob/master/screenshot/lib.png)
 
+pip install -r requirements.txt 执行这个命令安装依赖包
+
 
 实现的功能
 
