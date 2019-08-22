@@ -22,7 +22,7 @@ from common.findReplace import findAndReplace
 
 @ddt.ddt
 class test_创建项目配置(unittest.TestCase):
-    yaml_path = os.path.join(root_dir, "yaml", "创建项目配置.yaml")
+    yaml_path = os.path.join(root_dir, "yamlCase", "创建项目配置.yaml")
     oper_yaml = operYaml(yaml_path)
     case_list = oper_yaml.caseList()
 

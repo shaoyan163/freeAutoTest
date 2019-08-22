@@ -23,7 +23,7 @@ from common.logger import Log
 
 @ddt.ddt
 class test_审核项目配置(unittest.TestCase):
-    yaml_path = os.path.join(root_dir, "yaml", "审核拒绝项目配置.yaml")
+    yaml_path = os.path.join(root_dir, "yamlCase", "审核拒绝项目配置.yaml")
     oper_yaml = operYaml(yaml_path)
     case_list = oper_yaml.caseList()
 

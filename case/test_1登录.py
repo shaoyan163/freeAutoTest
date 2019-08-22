@@ -19,7 +19,7 @@ import os
 
 @ddt
 class test_登录(unittest.TestCase):
-    yaml_path = os.path.join(root_dir, "yaml", "登录.yaml")
+    yaml_path = os.path.join(root_dir, "yamlCase", "登录.yaml")
     oper_yaml = operYaml(yaml_path)
     case_list = oper_yaml.caseList()
 
