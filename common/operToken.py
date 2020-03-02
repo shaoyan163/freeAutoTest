@@ -1,6 +1,6 @@
 # coding=utf-8 
 """
-@Time    : 2019/05/25  下午 12:06 
+@Time    : 2018/05/25  下午 12:06
 @Author  : hzsyy
 @FileName: readToken.py
 @IDE     : PyCharm
@@ -22,8 +22,7 @@ def read_token():
 
 
 if __name__ == "__main__":
-	token = "12345"
-	write_file(token)
-	print(read_token()["assertToken"])
-	print(read_token()["centerToken"])
-	print(read_token()["fundToken"])
+	# token = "12345"
+	# write_file(token)
+	print(read_token()["cookie"])
+

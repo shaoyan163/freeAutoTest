@@ -1,0 +1,36 @@
+method: post
+uri: /travel/admin/carModel/update
+
+修改车型行车记录仪为无:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+        "hasTachograph":0,"engineType":3,"totalOil":"400","structureType":3,
+        "maxRechargeMileage":800,"oilWear":"50","carLength":5000,"carHeight":1500,
+        "carWidth":2000,"driveMode":4,"maxSpeed":180,"interiorColor":1,"sunroofType":1,
+        "hasControlScreen":1,"hasBackupCamera":1,"carWeight":1000,"seatCapacity":5,
+        "noticeModel":"","launchDate":"2020-02-01","environmentalStandard":"1234567890",
+        "maxPower":null,"maxTorque":null,"gearbox":"","engineDisplacement":null,
+        "carModelColorList":[{"colorId":69,"carModelId":40,
+        "colorName":"白","leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+        "rightImage":"","frontImage":"","backImage":"","fullViewImage":"",
+        "createTime":"2020-02-21 11:38:39","updateTime":null}],
+        "carModelId":"${carModelId}"}
+  check:
+     success: true
+     code: 200
+
+修改车型型号为比亚迪F430:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+        "hasTachograph":0,"engineType":3,"totalOil":"400","structureType":3,
+        "maxRechargeMileage":800,"oilWear":"50","carLength":5000,"carHeight":1500,
+        "carWidth":2000,"driveMode":4,"maxSpeed":180,"interiorColor":1,"sunroofType":1,
+        "hasControlScreen":1,"hasBackupCamera":1,"carWeight":1000,"seatCapacity":5,
+        "noticeModel":"","launchDate":"2020-02-01","environmentalStandard":"1234567890",
+        "maxPower":null,"maxTorque":null,"gearbox":"","engineDisplacement":null,
+        "carModelColorList":[{"colorId":69,"carModelId":40,
+        "colorName":"白","leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+        "rightImage":"","frontImage":"","backImage":"","fullViewImage":"",
+        "createTime":"2020-02-21 11:38:39","updateTime":null}],
+        "carModelId":"${carModelId}"}
+  check:
+     success: true
+     code: 200

@@ -1,0 +1,26 @@
+method: post
+uri: /travel/admin/carModel/list
+
+默认条件查询:
+  data: {"current":1,"size":10,"carModelName":""}
+  check:
+      code: 200
+      success: true
+
+
+按车型查询:
+  data: {"current":1,"size":10,"carModelName":"比亚迪G430"}
+  check:
+      code: 200
+      success: true
+      total: 1
+
+系统中不存在车型查询:
+  data: {"current":1,"size":10,"carModelName":"WWWW"}
+  check:
+      code: 200
+      success: true
+      total: 0
+
+
+

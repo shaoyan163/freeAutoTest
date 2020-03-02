@@ -1,6 +1,6 @@
 # coding=utf-8 
 """
-@Time    : 2019/05/28  下午 1:38 
+@Time    : 2018/05/28  下午 1:38
 @Author  : hzsyy
 @FileName: readYaml.py
 @IDE     : PyCharm
@@ -28,11 +28,14 @@ class operYaml:
 
 
 if __name__ == "__main__":
-	yamlPath = os.path.join(root_dir, "yamlCase", "登录.yaml")
+	yamlPath = os.path.join(root_dir, "yamlCase", "车辆管理", "2查询车型_6343查询车型.yaml")
 	oper_yaml = operYaml(yamlPath)
 	case_list = oper_yaml.caseList()
-	for i in case_list:
+	num = 0
+	for i in case_list[2:]:
+		num +=1
 		print(i)
+	print("共%d条用例" % num)
 
 
 

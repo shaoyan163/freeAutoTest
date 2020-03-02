@@ -1,0 +1,196 @@
+method: post
+uri: /travel/admin/carModel/insert
+
+正常添加车型:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    success: true
+    code: 200
+
+添加已经存在的车型:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: 车型重复,已存在该车型
+    code: 500
+    success: false
+
+
+添加车型不输入品牌:
+  data: {"brandName":"","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: "[brandName:车型名称不能为空]"
+    code: 400
+    success: false
+
+
+添加车型不输入车型名字:
+  data: {"brandName":"比亚迪OFO","carModelName":"","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: "[carModelName:车型名称不能为空]"
+    code: 400
+    success: false
+
+
+添加车型不输入级别:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":"",
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: "[carLevel:车辆级别不能为空]"
+    code: 400
+    success: false
+
+
+添加车型不输入发动机类型:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":"","totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: "[engineType:发动机类型不能为空]"
+    code: 400
+    success: false
+
+
+添加车型不输入总油量:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: 总油量不能为空
+    code: 500
+    success: false
+
+
+添加车型不输入车厢门数:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":"",
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: "[structureType:车厢车门数不能为空]"
+    code: 400
+    success: false
+
+添加车型不输入百公里油耗:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: 百公里油耗不能为空
+    code: 500
+    success: false
+
+
+添加车型不输入承载人数:
+  data: {"brandName":"比亚迪OFO","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: "[seatCapacity:承载人数不能为空]"
+    code: 400
+    success: false
+
+
+添加车型品牌输入空格:
+  data: {"brandName":"  ","carModelName":"比亚迪G430","carLevel":1,
+         "hasTachograph":1,"engineType":3,"totalOil":"400","structureType":3,
+         "maxRechargeMileage":800,"oilWear":"50","carLength":"5000",
+         "carHeight":"1500","carWidth":"2000","driveMode":4,"maxSpeed":"180",
+         "interiorColor":1,"sunroofType":1,"hasControlScreen":1,"hasBackupCamera":1,
+         "carWeight":"1000","seatCapacity":"5","noticeModel":"",
+         "launchDate":"2020-02-01","environmentalStandard":"1234567890",
+         "maxPower":"","maxTorque":"","gearbox":"","engineDisplacement":"",
+         "carModelColorList":[{"colorName":"白",
+         "leftImage":"group1/M00/00/29/CgoJH15PSKyAA2QJAADA4Fj7dYg207.jpg",
+         "rightImage":"","frontImage":"","backImage":"","fullViewImage":""}]}
+  check:
+    msg: "[brandName:车型名称不能为空]"
+    code: 400
+    success: false

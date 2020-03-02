@@ -1,6 +1,6 @@
 # coding=utf-8 
 """
-@Time    : 2019/05/25  上午 9:34 
+@Time    : 2018/05/25  上午 9:34
 @Author  : hzsyy
 @FileName: readConfig.py
 @IDE     : PyCharm
@@ -30,7 +30,7 @@ def confParam(name):
 
 
 if __name__ == "__main__":
-	params = confParam("projectName")
+	params = confParam("loginUrl")
 	print(params)
 
 

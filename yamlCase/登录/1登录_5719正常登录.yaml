@@ -1,0 +1,45 @@
+method: post
+uri: /travel/admin/authenticate/login
+
+正常登录:
+  data: {"account": "18042477732","userPwd":"admin123!@#$"}
+  check:
+    msg: 登录成功
+    success: true
+    code: 200
+
+输入错误的密码登录:
+  data: {"account": "18042477732","userPwd":"admin123!@"}
+  check:
+    msg: 用户名或密码错误
+    code: 401
+
+输入不存在用户名登录:
+  data: {"account": "18042477739","userPwd":"admin123!@#$"}
+  check:
+    msg: 用户名或密码错误
+    code: 401
+    success: true
+
+输入用户名为空登陆:
+  data: {"account": "","userPwd":"admin123!@#$"}
+  check:
+    msg: "[account:帐号不能为空]"
+    code: 400
+
+输入密码为空登陆:
+  data: {"account": "18042477732","userPwd":""}
+  check:
+    msg: '[userPwd:密码不能为空]'
+    code: 400
+
+输入用户名/密码都为空登录:
+  data: {"account": "","userPwd":""}
+  check:
+    msg:
+      - account:帐号不能为空
+      - userPwd:密码不能为空
+    code: 400
+    success: false
+
+

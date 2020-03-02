@@ -1,0 +1,27 @@
+method: post
+uri: /travel/admin/basic/sys/user/update/password
+
+修改密码不输入userId:
+  data: {"userId":"","oldPassword":"admin123!@#","newPassword":"admin123!@#$","rePassword":"admin123!@#$"}
+  check: userId:角色ID不能为空
+
+修改密码不输入旧密码:
+  data: {"userId":14,"oldPassword":"","newPassword":"admin123!@#$","rePassword":"admin123!@#$"}
+  check: oldPassword:旧密码不能为空
+
+修改密码不输入新密码:
+  data: {"userId":14,"oldPassword":"admin123!@#","newPassword":"","rePassword":"admin123!@#$"}
+  check: newPassword:新密码不能为空
+
+修改密码输入错误的旧密码:
+  data: {"userId":14,"oldPassword":"admin123!","newPassword":"admin123!@#$","rePassword":"admin123!@#$"}
+  check: 原密码不正确
+
+修改密码新密码输入123456:
+  data: {"userId":14,"oldPassword":"admin123!@#","newPassword":"123456","rePassword":"123456"}
+  check: 密码格式错误
+
+修改密码新密码输入12345678:
+  data: {"userId":14,"oldPassword":"admin123!@#","newPassword":"12345678","rePassword":"12345678"}
+  check: 密码格式错误
+
