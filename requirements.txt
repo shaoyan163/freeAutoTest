@@ -16,7 +16,7 @@ pytest==3.8.0
 pytest-allure-adaptor==1.7.10
 pytest-assume==1.2.2
 python-dateutil==2.7.3
-PyYAML==5.1
+PyYAML==5.4
 requests==2.23.0
 selenium==3.14.1
 text-unidecode==1.2
