@@ -7,7 +7,7 @@ enum34==1.1.6
 Faker==0.9.0
 idna==2.7
 injson==0.2.2
-lxml==4.3.0
+lxml==4.6.3
 more-itertools==5.0.0
 namedlist==1.7
 pycparser==2.18
